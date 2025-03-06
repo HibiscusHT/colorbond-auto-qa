@@ -1,0 +1,1 @@
+FROM cypress/included:12.11.0
