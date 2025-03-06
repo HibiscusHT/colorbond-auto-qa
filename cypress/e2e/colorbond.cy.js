@@ -27,8 +27,16 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.screenshot()
     })
 
-    it('second test',()=>{
-        cy.task('writeLine','second test')
+    it('open and explore products',()=>{
+        cy.visit(myUrl)
+        cy.task('writeLine','open products page')
+        cy.get('body > div.min-h-screen > div.flex-col.w-full > main > div.web-header.flex.flex-wrap.w-full.top-0.fixed.z-40.sticky > div > div.hidden.flex-row.flex-wrap.items-center > ul > li:nth-child(1) > a').click({multiple: true})
+        cy.url().should('include','/products')
+        cy.screenshot()
+        cy.task('writeLine','select card residential')
+        cy.get('body > div.min-h-screen > div.flex-col.w-full > main > div.flex.flex-wrap.w-full.my-4.py-4 > div.flex.flex-wrap.w-full.container.justify-center.items-start.mx-auto.my-4.py-4 > div:nth-child(5) > a').click()
+        cy.url().should('include','/products/residential')
+        cy.screenshot()
     })
 
   })
