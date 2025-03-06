@@ -1,3 +1,5 @@
+#e2e
+cypress/screenshots
 # Logs
 logs
 *.log
